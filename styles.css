@@ -168,7 +168,7 @@ html, body {
 .content__card-text{
     font-family: "KungFuMaster", sans-serif;
     position: absolute;
-    top: 180%;
+    top: 160%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -181,7 +181,7 @@ html, body {
 .content__card-button{
     padding-top: 5rem;
     position: absolute;
-    top: 220%;
+    top: 205%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
