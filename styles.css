@@ -1,12 +1,22 @@
 :root{
     --cor-de-fundo: #000000;
     --branco: #ffffff;
-    --vermelho: #A91D3A
+    --vermelho: #A91D3A;
+    --botao:  #7c1228;
+}
+
+@font-face {
+  font-family: 'KungFuMaster';
+  src: url('fonts/fonte_kungfumaster.woff2') format('woff2'),
+       url('fonts/fonte_kungfumaster.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -23,19 +33,35 @@ html, body {
     display: flex;
     align-items: center;
     padding: 1em;
+    padding-left: 8rem;
     background-color: var(--branco);
 }
 
 .header__logo{
-    width: 150%;
-    height: auto;
+    width: auto;
+    max-width: 150px;
 }
 
 .header__image{
-    width: 7%;
+    width: 80%;
     height: auto;
     display: block;
-    padding-left: 5rem;
+}
+
+.content__carousel-text{
+    font-family: "Raleway", sans-serif;
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000;
+}
+
+.content__carousel-text-text{
+    max-width: 300px;
+    text-align: center;
+    font-weight: 500;
 }
 
 .header__navigation{
@@ -44,31 +70,58 @@ html, body {
 }
 
 .header__elements{
+    font-family: "Raleway", sans-serif;
     position: absolute;
     top: 9%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .header__link {
   text-decoration: none;
   color: var(--cor-de-fundo);
   font-weight: 500;
-  font-size: 20px;
-  white-space: nowrap;
+  font-size: 32px;
+  position: relative;
   transition: color 0.3s ease;
 }
 
+.header__link::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: var(--vermelho); 
+    transition: width 0.3s ease;
+}
+
+.header__link:hover{
+  color: var(--vermelho);
+}
+
+
+.header__link:hover::after {
+  width: 100%;
+}
+
 .header__icons{
+    flex: 1;
     display: flex;
-    padding-right: 15rem;
-    margin-top: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 7rem; 
 }
 
 .header__icons-icons {
-    width: 20px;
-    height: 20px;
-    padding: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+.header__icons-icons img:hover {
+  transform: scale(1.05);
 }
 
 /* CORPO */
@@ -77,12 +130,79 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.content__carousel-tittle{
+    position: absolute;
+    color: var(--cor-de-fundo);
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content__carousel-tittle1{
+  font-family: "KungFuMaster", sans-serif;
+  font-size: 3.4rem;
+  font-weight: 200;
+  margin: 0;
+  line-height: 0.5;
+}
+
+.content__carousel-tittle2{
+  font-family: "KungFuMaster", sans-serif;
+  font-weight: 400;
+  font-size: 7.86rem;
+  text-align: center;
+  margin: 0;
+  line-height: 1;
 }
 
 .content__card{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.content__card-text{
+    font-family: "KungFuMaster", sans-serif;
+    position: absolute;
+    top: 180%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 150px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 10rem;
+}
+
+.content__card-button{
+    padding-top: 5rem;
+    position: absolute;
+    top: 220%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content__card-button-button{
+    font-family: "KungFuMaster", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--branco);
+    background-color: var(--vermelho);
+    border: none;
+    padding: 0.8rem 2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.content__card-button-button:hover{
+  background-color: var(--botao);
+  transform: scale(1.05);
 }
 
 .body__image1{
@@ -111,7 +231,7 @@ html, body {
 }
 
 .footer__image {
-  width: 100vw;
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -128,10 +248,19 @@ html, body {
 }
 
 .footer__address-tittle{
+    font-family: 'KungFuMaster', sans-serif;
+    font-weight: 200;
     text-align: center;
     font-size: 32px;
     margin-bottom: 15px;
     letter-spacing: 1px;
+}
+
+.footer__address-icon{
+    width: 26px;
+    height: 26px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
 }
 
 .footer__address-map {
@@ -153,11 +282,12 @@ html, body {
   border-radius: 10px;
   color: white;
   max-width: 400px;
-  font-family: 'Arial Black', sans-serif;
 }
 
 .footer__contact-title {
-  font-size: 20px;
+  font-family: 'KungFuMaster', sans-serif;
+  font-size: 32px;
+  font-weight: 200;
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
@@ -169,6 +299,9 @@ html, body {
 }
 
 .footer__contact-item {
+  font-family: 'KungFuMaster', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
   display: flex;
   align-items: center;
   margin-bottom: 12px;
